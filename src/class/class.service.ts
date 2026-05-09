@@ -22,7 +22,7 @@ export class ClassService {
   }
 
   async get_class_lists(dto:GetListsDto){
-    return this.prisma.list.findMany({where:{classId:dto.ClassId}})
+    return this.prisma.list.findMany({where:{classId:dto.classId}})
   }
 
 }

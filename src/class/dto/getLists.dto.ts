@@ -1,5 +1,5 @@
 
 
 export class GetListsDto {
-    ClassId!:string
+    classId!:string
 }
