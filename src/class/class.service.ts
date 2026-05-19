@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import { CreateClassDto } from './dto/createClass.dto';
-import { PrismaService } from 'src/prisma/prisma.service';
-import { GetListsDto } from './dto/getLists.dto';
+import { CreateClassDto } from './dto/create-class.dto';
+import { PrismaService } from '@/prisma/prisma.service';
+import { GetListsDto } from './dto/get-lists.dto';
 @Injectable()
 export class ClassService {
   constructor(private prisma: PrismaService) {}
@@ -25,4 +25,9 @@ export class ClassService {
     return this.prisma.list.findMany({where:{classId:dto.classId}})
   }
 
+
+  async get_class(classId:string){
+    return this.prisma.class.findUnique({where:{id:classId}})
+  
+  }
 }
