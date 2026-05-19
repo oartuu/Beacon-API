@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Param, Post, Req, Res } from '@nestjs/common';
 import { UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import type { RequestWithUser } from 'src/class/types/request-with-user';
+import type { RequestWithUser } from '@/class/types/request-with-user';
 import { ListService } from './list.service';
 import { CreateListDto } from './dto/createList.dto';
 import { CreatePresenceDto } from './dto/createPresence.dto';

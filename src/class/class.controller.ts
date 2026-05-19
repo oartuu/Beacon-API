@@ -2,15 +2,17 @@ import { Body, Controller, Get, Post, Req, Res } from '@nestjs/common';
 import { UseGuards } from '@nestjs/common';
 
 import { AuthGuard } from '@nestjs/passport';
-import { CreateClassDto } from './dto/createClass.dto';
+import { CreateClassDto } from './dto/create-class.dto';
 import type { RequestWithUser } from './types/request-with-user';
 import { ClassService } from './class.service';
 import { GetListsDto } from './dto/getLists.dto';
+import { ApiBearerAuth } from '@nestjs/swagger';
 
 @Controller('class')
 export class ClassController {
   constructor(private classService: ClassService) {}
 
+  @ApiBearerAuth()
   @UseGuards(AuthGuard('jwt'))
   @Post('create')
   async createClass(
